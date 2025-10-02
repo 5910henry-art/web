@@ -5,167 +5,82 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Henry Mushiyu | Portfolio</title>
 <style>
-/* ----------------- General Styles ----------------- */
 :root {
-  --background: #fff;
-  --text: #333;
-  --accent: #4CAF50;
-  --accent-hover: #45a049;
-  --input-background: #f9f9f9;
-  --border: #ccc;
+  --background: #fff; --text: #333; --accent: #4CAF50; --accent-hover:#45a049; --input-bg:#f9f9f9; --border:#ccc;
 }
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  background-color: var(--background);
-  color: var(--text);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-body.dark-mode {
-  --background: #222;
-  --text: #eee;
-  --accent: #8BC34A;
-  --accent-hover: #7cb342;
-  --input-background: #333;
-  --border: #555;
-}
+body { font-family: Arial,sans-serif; margin:0; background-color:var(--background); color:var(--text); transition:0.3s;}
+body.dark-mode { --background:#222; --text:#eee; --accent:#8BC34A; --accent-hover:#7cb342; --input-bg:#333; --border:#555;}
 
-/* ----------------- Side Navigation ----------------- */
-.side-nav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  top: 0;
-  right: 0;
-  background: var(--accent);
-  overflow-x: hidden;
-  transition: 0.3s;
-  padding-top: 60px;
-  z-index: 2000;
-}
-.side-nav ul { list-style: none; padding: 0; }
-.side-nav ul li { margin: 12px 0; position: relative; }
-.side-nav a {
-  padding: 12px 24px;
-  text-decoration: none;
-  color: #fff;
-  display: block;
-  font-size: 1.1rem;
-  transition: 0.2s;
-}
+/* Side Navigation */
+.side-nav { height:100%; width:0; position:fixed; top:0; right:0; background:var(--accent); overflow-x:hidden; transition:0.3s; padding-top:60px; z-index:2000;}
+.side-nav ul { list-style:none; padding:0;}
+.side-nav ul li { margin:12px 0; position:relative; }
+.side-nav a { padding:12px 24px; text-decoration:none; color:#fff; display:block; font-size:1.1rem; transition:0.2s; }
 .side-nav a:hover { background: rgba(255,255,255,0.2) }
-.side-nav .sub-menu { display: none; margin-left: 16px; }
-.side-nav li:hover > .sub-menu { display: block; }
-#close-nav {
-  position: absolute;
-  top: 14px;
-  right: 16px;
-  font-size: 28px;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-}
-.hamburger {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  font-size: 28px;
-  background: none;
-  border: none;
-  color: var(--accent);
-  z-index: 2100;
-  cursor: pointer;
-}
+.side-nav .sub-menu { display:none; margin-left:16px; }
+.side-nav li:hover > .sub-menu { display:block; }
+#close-nav { position:absolute; top:14px; right:16px; font-size:28px; background:none; border:none; color:#fff; cursor:pointer; }
+.hamburger { position:fixed; top:16px; right:16px; font-size:28px; background:none; border:none; color:var(--accent); z-index:2100; cursor:pointer; }
 
-/* ----------------- Sections ----------------- */
-section {
-  display: none;
-  max-width: 900px;
-  margin: 5rem auto 3rem auto;
-  padding: 2rem 1rem;
-  opacity: 0;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-section.active { display: block; opacity: 1; transform: translateY(0); }
+/* Sections */
+section { display:none; max-width:900px; margin:5rem auto 3rem auto; padding:2rem 1rem; opacity:0; transition: opacity 0.6s, transform 0.6s; }
+section.active { display:block; opacity:1; transform: translateY(0); }
 .fade-in { animation: fadeIn 0.8s ease forwards; }
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-section h2 { text-align: center; margin-bottom: 1rem; }
-section p { text-align: center; margin-bottom: 2rem; }
+@keyframes fadeIn {0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}
+section h2{text-align:center;margin-bottom:1rem;} section p{text-align:center;margin-bottom:2rem;}
 
-/* ----------------- Upgraded Home Section ----------------- */
-#home {
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:2rem;
-  position:relative;
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/tech-bg.jpg') no-repeat center/cover;
-  color:#fff;
-  overflow:hidden;
-}
-#home img.profile {
-  width:180px;
-  border-radius:50%;
-  border:4px solid #fff;
-  margin-bottom:1rem;
-  box-shadow:0 4px 15px rgba(0,0,0,0.3);
-  animation: profileZoom 1s ease forwards;
-}
-#home h1 { font-size:2.8rem; margin-bottom:0.5rem; }
-#home p { font-size:1.3rem; margin-bottom:2rem; }
-#home .header-buttons { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1rem; }
-#home .header-buttons .btn { padding:0.8rem 1.5rem; font-size:1.1rem; }
-#home #theme-toggle { padding:0.6rem 1.2rem; font-size:1rem; }
+/* Home Section */
+#home { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:2rem; position:relative; background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('assets/tech-bg.jpg') no-repeat center/cover; color:#fff; overflow:hidden;}
+#home img.profile { width:180px; border-radius:50%; border:4px solid #fff; margin-bottom:1rem; box-shadow:0 4px 15px rgba(0,0,0,0.3); animation: profileZoom 1s ease forwards; }
+#home h1{ font-size:2.8rem; margin-bottom:0.5rem;}
+#home p{ font-size:1.3rem; margin-bottom:2rem;}
+#home .header-buttons{ display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1rem;}
+#home .header-buttons .btn{ padding:0.8rem 1.5rem; font-size:1.1rem;}
+#home #theme-toggle{ padding:0.6rem 1.2rem; font-size:1rem; }
 
 /* Floating icons */
-#home .tech-icon { position:absolute; font-size:1.5rem; opacity:0.7; }
+#home .tech-icon{ position:absolute; font-size:1.5rem; opacity:0.7; }
 
-/* ----------------- Keyframes ----------------- */
-@keyframes profileZoom { 0% { transform: scale(0.8); opacity:0; } 100% { transform: scale(1); opacity:1; } }
-@keyframes floatIcons { 0% { transform: translateY(0); } 100% { transform: translateY(-15px); } }
-@keyframes floatIcons2 { 0% { transform: translateY(0); } 100% { transform: translateY(20px); } }
-@keyframes floatIcons3 { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
+/* Keyframes */
+@keyframes profileZoom{0%{transform:scale(0.8);opacity:0;}100%{transform:scale(1);opacity:1;}}
+@keyframes floatIcons{0%{transform:translateY(0);}100%{transform:translateY(-15px);}}
+@keyframes floatIcons2{0%{transform:translateY(0);}100%{transform:translateY(20px);}}
+@keyframes floatIcons3{0%{transform:translateY(0);}100%{transform:translateY(-10px);}}
 
-/* ----------------- Projects ----------------- */
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1.5rem; }
-.project { background: var(--input-background); padding: 1rem; border-radius: 8px; }
-.project-links a { margin-right: 1rem; color: var(--accent); text-decoration: none; }
-.project-links a:hover { text-decoration: underline; }
+/* Projects */
+.projects-grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem;}
+.project{ background:var(--input-bg); padding:1rem; border-radius:8px; transition: transform 0.3s, box-shadow 0.3s;}
+.project:hover{ transform:scale(1.03); box-shadow:0 6px 18px rgba(0,0,0,0.2);}
+.project-links a{ margin-right:1rem; color:var(--accent); text-decoration:none;}
+.project-links a:hover{text-decoration:underline;}
 
-/* ----------------- Skills ----------------- */
-.skills-grid { display: grid; gap: 1rem; }
-.skill h4 { margin-bottom: 0.4rem; }
-.progress { background: var(--input-background); border-radius: 8px; height: 12px; overflow: hidden; }
-.progress-bar { height: 12px; background: var(--accent); width: 0; transition: width 1s ease; }
+/* Skills */
+.skills-grid{ display:grid; gap:1rem; }
+.skill h4{ margin-bottom:0.4rem;}
+.progress{ background:var(--input-bg); border-radius:8px; height:12px; overflow:hidden;}
+.progress-bar{ height:12px; background:var(--accent); width:0; transition:width 1s ease;}
 
-/* ----------------- Contact ----------------- */
-.contact-form { display: flex; flex-direction: column; gap: 1rem; max-width: 600px; margin: auto; }
-.contact-form input, .contact-form textarea {
-  padding: 0.8rem; font-size: 1rem; border-radius: 6px; border: 1px solid var(--border); background: var(--input-background); color: var(--text);
-}
-.contact-form input:focus, .contact-form textarea:focus {
-  border-color: var(--accent); outline:none; box-shadow:0 0 6px rgba(76,175,80,0.4);
-}
-.submit-btn { padding:0.9rem; background: var(--accent); color:#fff; border:none; border-radius:6px; cursor:pointer; font-weight:bold; }
-.submit-btn:hover { background: var(--accent-hover); }
-.form-message { text-align:center; margin-top:1rem; }
+/* Contact */
+.contact-form{ display:flex; flex-direction:column; gap:1rem; max-width:600px; margin:auto;}
+.contact-form input, .contact-form textarea{ padding:0.8rem; font-size:1rem; border-radius:6px; border:1px solid var(--border); background:var(--input-bg); color:var(--text);}
+.contact-form input:focus, .contact-form textarea:focus{ border-color:var(--accent); outline:none; box-shadow:0 0 6px rgba(76,175,80,0.4);}
+.submit-btn{ padding:0.9rem; background:var(--accent); color:#fff; border:none; border-radius:6px; cursor:pointer; font-weight:bold;}
+.submit-btn:hover{ background:var(--accent-hover);}
+.form-message{text-align:center;margin-top:1rem;}
 
-/* ----------------- Testimonials ----------------- */
-.testimonial { background: var(--input-background); padding: 1rem; border-radius:6px; margin-bottom:1rem; }
+/* Testimonials */
+.testimonial{ background:var(--input-bg); padding:1rem; border-radius:6px; margin-bottom:1rem;}
+
+/* Social Links */
+.social-links a{ margin:0 8px; color:var(--accent); text-decoration:none; font-size:1.2rem; transition: transform 0.3s, color 0.3s;}
+.social-links a:hover{ color:var(--accent-hover); transform:translateY(-3px); }
 
 @media screen and (max-width:768px){
-  .projects-grid { grid-template-columns: 1fr; }
-  #home img.profile { width:140px; }
-  #home h1 { font-size:2rem; }
-  #home p { font-size:1rem; }
-  #home .header-buttons .btn { font-size:1rem; padding:0.6rem 1rem; }
+  .projects-grid{ grid-template-columns: 1fr;}
+  #home img.profile{ width:140px;}
+  #home h1{ font-size:2rem;}
+  #home p{ font-size:1rem;}
+  #home .header-buttons .btn{ font-size:1rem; padding:0.6rem 1rem;}
 }
 </style>
 </head>
@@ -189,7 +104,7 @@ section p { text-align: center; margin-bottom: 2rem; }
 </div>
 <button id="open-nav" class="hamburger">☰</button>
 
-<!-- Sections -->
+<!-- Home Section -->
 <section id="home" class="active">
   <img src="assets/profile.jpg" alt="Henry Mushiyu" class="profile">
   <h1>Hi, I’m Henry 🌍</h1>
@@ -201,14 +116,14 @@ section p { text-align: center; margin-bottom: 2rem; }
   <button id="theme-toggle">🌙 Dark Mode</button>
 
   <!-- Floating Icons -->
-  <div class="tech-icon" style="top:10%; left:5%; font-size:1.5rem; animation: floatIcons 5s infinite alternate;">💻</div>
-  <div class="tech-icon" style="top:20%; right:10%; font-size:2rem; animation: floatIcons2 6s infinite alternate;">⚡</div>
-  <div class="tech-icon" style="bottom:15%; left:15%; font-size:1.8rem; animation: floatIcons3 7s infinite alternate;">🛡️</div>
+  <div class="tech-icon" style="top:10%; left:5%; animation: floatIcons 5s infinite alternate;">💻</div>
+  <div class="tech-icon" style="top:20%; right:10%; animation: floatIcons2 6s infinite alternate;">⚡</div>
+  <div class="tech-icon" style="bottom:15%; left:15%; animation: floatIcons3 7s infinite alternate;">🛡️</div>
 </section>
 
 <section id="about">
   <h2>About Me</h2>
-  <p>Hello! I’m Henry, a computer science student specializing in cybersecurity. I love coding, exploring technology, and building solutions that have real-world impact. This website is my personal space to showcase my projects, skills, and passions.</p>
+  <p>Hello! I’m Henry, a computer science student specializing in cybersecurity. I love coding, exploring technology, and building solutions that have real-world impact.</p>
 </section>
 
 <section id="projects">
@@ -221,101 +136,92 @@ section p { text-align: center; margin-bottom: 2rem; }
     </div>
     <div class="project">
       <h3>Cybersecurity Tools</h3>
-      <p>Scripts for penetration testing, network monitoring, and security learning optimized for Termux.</p>
+      <p>Scripts for penetration testing, network monitoring, and learning security in Termux.</p>
       <div class="project-links"><a href="#">GitHub</a> | <a href="#">Live Demo</a></div>
     </div>
   </div>
 </section>
 
 <section id="skills">
-  <h2>Skills & Technologies</h2>
+  <h2>Skills</h2>
   <div class="skills-grid">
-    <div class="skill"><h4>HTML & CSS</h4><div class="progress"><div class="progress-bar" style="width:90%"></div></div></div>
-    <div class="skill"><h4>JavaScript</h4><div class="progress"><div class="progress-bar" style="width:85%"></div></div></div>
-    <div class="skill"><h4>Python</h4><div class="progress"><div class="progress-bar" style="width:80%"></div></div></div>
-    <div class="skill"><h4>Cybersecurity</h4><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
-    <div class="skill"><h4>Git & GitHub</h4><div class="progress"><div class="progress-bar" style="width:85%"></div></div></div>
+    <div class="skill">
+      <h4>HTML & CSS</h4>
+      <div class="progress"><div class="progress-bar" style="width:90%"></div></div>
+    </div>
+    <div class="skill">
+      <h4>JavaScript</h4>
+      <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+    </div>
+    <div class="skill">
+      <h4>Python</h4>
+      <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+    </div>
+    <div class="skill">
+      <h4>Cybersecurity</h4>
+      <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+    </div>
   </div>
 </section>
 
 <section id="contact">
   <h2>Contact Me</h2>
-  <p>Have a question or want to collaborate? Send me a message!</p>
-  <form id="contact-form" class="contact-form">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="email" id="email" placeholder="Your Email" required>
-    <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" rows="5" required></textarea>
     <button type="submit" class="submit-btn">Send Message</button>
-    <p id="form-message" class="form-message"></p>
+    <p class="form-message"></p>
   </form>
 </section>
 
-<section id="testimonials">
-  <h2>What People Say</h2>
-  <div class="testimonial"><p>"Henry is an exceptional cybersecurity enthusiast and a quick learner!"</p><span>- Mentor</span></div>
-  <div class="testimonial"><p>"Very professional, creative, and reliable. Highly recommended!"</p><span>- Colleague</span></div>
-</section>
-
 <footer>
-  <p style="text-align:center; padding:1rem;">© 2025 Henry Mushiyu | Made with ❤️</p>
+  <div class="social-links">
+    <a href="https://github.com/5910henry-art" target="_blank">🐱 GitHub</a>
+    <a href="https://www.linkedin.com/in/henry-mushiyu" target="_blank">💼 LinkedIn</a>
+    <a href="https://wa.me/2547XXXXXXXX" target="_blank">💬 WhatsApp</a>
+    <a href="mailto:henry@example.com">✉️ Email</a>
+  </div>
+  <p>© 2025 Henry Mushiyu | Made with ❤️</p>
 </footer>
 
 <script>
-// ----------------- Side Nav -----------------
-const sideNav = document.getElementById("side-nav");
-document.getElementById("open-nav").addEventListener("click", ()=> sideNav.style.width="250px");
-document.getElementById("close-nav").addEventListener("click", ()=> sideNav.style.width="0");
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', ()=>{
+  document.body.classList.toggle('dark-mode');
+});
 
-// ----------------- Section Switching & Animations -----------------
-const links = document.querySelectorAll('[data-section]');
-const sections = document.querySelectorAll('section');
+const openNav = document.getElementById('open-nav');
+const closeNav = document.getElementById('close-nav');
+const sideNav = document.getElementById('side-nav');
+openNav.addEventListener('click', ()=>{ sideNav.style.width='250px'; });
+closeNav.addEventListener('click', ()=>{ sideNav.style.width='0'; });
 
-function animateSkills() {
-  const skills = document.querySelectorAll('#skills .progress-bar');
-  skills.forEach((bar) => {
-    const width = bar.style.width;
-    bar.style.width = '0';
-    setTimeout(() => { bar.style.width = width; }, 300);
-  });
-}
-
-links.forEach(link=>{
+const navLinks = document.querySelectorAll('.side-nav a[data-section], .header-buttons a[data-section]');
+navLinks.forEach(link=>{
   link.addEventListener('click', e=>{
     e.preventDefault();
-    const target = link.getAttribute('data-section');
-    sections.forEach(sec=>{
-      sec.classList.remove('active');
-      sec.classList.remove('fade-in');
+    const target = e.target.getAttribute('data-section');
+    document.querySelectorAll('section').forEach(sec=>{
+      sec.classList.remove('active'); sec.classList.remove('fade-in');
     });
-    const activeSection = document.getElementById(target);
-    activeSection.classList.add('active');
-    activeSection.classList.add('fade-in');
+    const section = document.getElementById(target);
+    section.classList.add('active','fade-in');
     sideNav.style.width='0';
-    if(target==='skills') animateSkills();
   });
 });
 
-// ----------------- Dark Mode -----------------
-document.getElementById("theme-toggle").addEventListener("click", ()=> document.body.classList.toggle("dark-mode"));
-
-// ----------------- Contact Form -----------------
-const contactForm = document.getElementById("contact-form");
-const formMessage = document.getElementById("form-message");
-contactForm.addEventListener("submit", function(e){
-  e.preventDefault();
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
-  if(!name||!email||!message){
-    formMessage.textContent="Please fill out all fields."; formMessage.style.color="red"; return;
-  }
-  const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if(!emailRegex.test(email)){
-    formMessage.textContent="Please enter a valid email address."; formMessage.style.color="red"; return;
-  }
-  formMessage.textContent="Thank you! Your message has been sent."; formMessage.style.color="green";
-  contactForm.reset();
+// Animate progress bars on scroll
+window.addEventListener('scroll', ()=>{
+  const skills = document.querySelectorAll('.progress-bar');
+  skills.forEach(skill=>{
+    const rect = skill.getBoundingClientRect();
+    if(rect.top < window.innerHeight-50){
+      skill.style.width = skill.getAttribute('style').split(':')[1];
+    }
+  });
 });
 </script>
+
 </body>
 </html>
